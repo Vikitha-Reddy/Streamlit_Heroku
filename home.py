@@ -7,7 +7,7 @@ df=pd.read_csv('data/diamonds.csv')
 
 or_enc=load(open('models/ordinal_encoder.pkl','rb'))
 scaler = load(open('models/Standard_scaler.pkl', 'rb'))
-rf_regressor=load(open('models/dt_regressor.pkl','rb'))
+dt_regressor=load(open('models/dt_regressor.pkl','rb'))
 st.title('Diamond Price Prediction')
 
 with st.form('my_form'):
