@@ -7,7 +7,7 @@ df=pd.read_csv('data/diamonds.csv')
 
 or_enc=load(open('models/ordinal_encoder.pkl','rb'))
 scaler = load(open('models/Standard_scaler.pkl', 'rb'))
-rf_regressor=load(open('models/rf_regressor.pkl','rb'))
+rf_regressor=load(open('models/dt_regressor.pkl','rb'))
 st.title('Diamond Price Prediction')
 
 with st.form('my_form'):
@@ -34,7 +34,7 @@ with st.form('my_form'):
             query_num = scaler.transform(query_num)
 
             query_point = pd.concat([pd.DataFrame(query_num), pd.DataFrame(query_cat)], axis=1)
-            price = rf_regressor.predict(query_point)
+            price = dt_regressor.predict(query_point)
 
             st.success(f"The price of Selected Diamond is $ {round(price[0],2)}")
 
